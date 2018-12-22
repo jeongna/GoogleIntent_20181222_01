@@ -15,6 +15,7 @@ public class MainActivity extends BaseActivity {
     Button callBtn;
     EditText contentEdt;
     Button smsBtn;
+    Button kakaoMarketLinkBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,16 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        kakaoMarketLinkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String kakaoLinkUrl = "com.kakao.talk";
+                Uri uri = Uri.parse(String.format("market://details?id=%s", kakaoLinkUrl));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -89,6 +100,7 @@ public class MainActivity extends BaseActivity {
         callBtn = findViewById(R.id.callBtn);
         contentEdt = findViewById(R.id.contentEdt);
         smsBtn = findViewById(R.id.smsBtn);
+        kakaoMarketLinkBtn = findViewById(R.id.kakaoMarketLinkBtn);
     }
 
 }
